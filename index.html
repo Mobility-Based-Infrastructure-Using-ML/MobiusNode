@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mobius ML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body style="width: 100%; height: 100%;">
+    <div style="display: flex; flex-direction: row; align-items: center;">
+        <h1>Mobius ML</h1>
+        <h2>Facial Recognition using Neural Networks</h2>
+    </div> 
+    <div class="content">
+        <div class="settings">
+            <div class="buttons">
+                <button id="train" class="button">Train</button>
+                <button id="predict" class="button">Run</button>
+                <button id="saveModel" class="button">Save</button>
+            </div>
+            <div id="status">Loading mobilenet...</div>
+            <h2 id="train-status"></h2>
+            <div class="hyper-params">
+
+                <!-- Learning rate -->
+                <div class="dropdown">
+                    <label>Learning rate</label>
+                    <select id="learningRate" class="select">
+                        <option value="0.00001">0.00001</option>
+                        <option selected="" value="0.0001">0.0001</option>
+                        <option value="0.01">0.001</option>
+                        <option value="0.03">0.003</option>
+                    </select>
+                </div>
+        
+                <!-- Batch size -->
+                <div class="dropdown">
+                    <label>Batch size</label>
+                    <select id="batchSizeFraction" class="select">
+                        <option value="0.05">0.05</option>
+                        <option value="0.1">0.1</option>
+                        <option selected="" value="0.4">0.4</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+        
+                <!-- Epochs -->
+                <div class="dropdown">
+                    <label>Epochs</label>
+                    <select id="epochs" class="select">
+                        <option value="10">10</option>
+                        <option selected="" value="20">20</option>
+                        <option value="40">40</option>
+                    </select>
+                </div>
+        
+                <!-- Hidden units -->
+                <div class="dropdown">
+                    <label>Hidden units</label>
+                    <select id="dense-units" class="select">
+                        <option value="10">10</option>
+                        <option selected="" value="100">100</option>
+                        <option value="200">200</option>
+                    </select>
+                </div>
+            
+            </div>
+        </div>
+        
+        <div class="circles">
+            <div class="cam-circle" id="top-camera">
+                <button id="up">
+                    <canvas class="thumb" width=224 height=224 id="front-thumb"></canvas>  
+                </button>
+            </div>
+            <div class="cam-circle" id="bottom-camera">
+                <button id="down"on>
+                    <canvas class="thumb" width=224 height=224 id="back-thumb"></canvas>
+                </button>
+            </div>
+            <div class="cam-circle" id="left-camera">
+                <button id="left">
+                    <canvas class="thumb" width=224 height=224 id="left-thumb"></canvas>
+                </button>
+            </div>
+            <div class="cam-circle" id="right-camera">
+                <button id="right">
+                    <canvas class="thumb" width=224 height=224 id="right-thumb"></canvas>
+                </button>
+            </div>
+            <div class="cam-circle main" id="camera">
+                <button id="idle">
+                    <div class="webcam-wrapper">
+                        <video autoplay playsinline muted id="webcam" height="224"></video>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
